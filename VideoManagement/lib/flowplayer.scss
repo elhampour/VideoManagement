@@ -1,0 +1,78 @@
+﻿a[href="https://flowplayer.org/hello"] {
+    left: -108px !important;
+}
+
+.fp-timeline {
+    @media(max-width:450px) {
+        position: absolute !important; top: -15px; left: 0; right: 0;
+    }
+}
+
+.player-content-back {
+    .fp-context-menu
+
+{
+    display: none;
+}
+
+}
+
+.player-content-back-without {
+    background-image: none !important;
+}
+
+.flowplayer .fp-context-menu a, .flowplayer .fp-context-menu strong {
+    text-align: right;
+}
+
+.direction-ltr {
+    direction: ltr;
+}
+
+.flowplayer {
+    direction: ltr;
+    border-radius: 0;
+}
+
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+
+    &:before {
+        display: block;
+        content: "";
+        width: 100%;
+        padding-top: ($height / $width) * 100%;
+    }
+
+    > .player-content-back {
+        background-size: cover;
+    }
+
+    > .player-content {
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+.sixteen-nine {
+    @include aspect-ratio(16, 9);
+}
+
+.video-status {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    > div
+
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+}

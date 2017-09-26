@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Video Player</title>
+    <link href="~/node_modules/flowplayer/dist/skin/skin.css" rel="stylesheet" />
+    <link href="~/lib/flowplayer.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="direction-ltr" style="width:800px;">
+        <div class="col-lg-12 m-x-auto video-container sixteen-nine p-x-0">
+            <div class="ninisite-player player-content player-content-back" 
+                 style="background-image:url(http://s1.ninifile.com/statics/videothumbs/2017/9/c7338b56-c409-4425-81b3-223e00bcf104/2babf6d3-4107-48b3-bc24-659331a06c0a.jpg)" 
+                 data-processstatus="1" 
+                 data-playlist="http://v1.ninifile.com/videos/2017/9/a7e7ac1f-5631-4167-b724-a0ed4d31ba73/b8b37be2-f52b-4910-ae2c-414fbe86c621-master.m3u8">
+                <div class="video-status"><div></div></div>
+                <div class="fp-context-menu fp-menu">
+                    <a href="http://www.ninisite.com">نی نی سایت</a>
+                    <a href="http://www.ninisite.com/videos">ویدئو های نی نی سایت</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script key="ninivideo.js" src="~/node_modules/flowplayer/dist/flowplayer.js"></script>
+    <script src="~/lib/flowplayer.hlsjs.min.js"></script>
+    <script src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+    <script src="//releases.flowplayer.org/vast/flowplayer.org/vast.min.js"></script>
+    <script src="~/lib/no-playlist.js"></script>
+</body>
+</html>
