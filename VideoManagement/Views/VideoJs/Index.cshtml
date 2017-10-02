@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VideoJs Player</title>
+    <link href="//vjs.zencdn.net/5.19/video-js.css" rel="stylesheet">
+    <link href="~/lib/videojs.vast.vpaid.css" rel="stylesheet" />
+    <script src="//vjs.zencdn.net/5.19/video.js"></script>
+    <script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
+    <script src="~/lib/videojs_5.vast.vpaid.js"></script>
+</head>
+<body>
+    <video id="my-player" class="video-js" controls 
+           data-setup='{
+              "plugins": {
+              "vastClient": {
+                "adTagUrl": "http://localhost:62046/adssample/ads2.xml",
+                "adCancelTimeout": 5000,
+                "adsEnabled": true
+                }
+              }
+            }'
+           preload="auto" poster="http://s1.ninifile.com/statics/videothumbs/2017/9/77ec22b0-4e68-40e8-9f58-e34c7ee2936f/aa25e529-540b-4d60-91c0-c3c0c24dcc8b.jpg" data-setup='{}'>
+        <source src="http://v1.ninifile.com/videos/2017/9/c5f9029c-0d37-4751-a8ec-db19c52438b9/5963e231-e9bf-4212-b82c-b52ff0bbf4be-master.m3u8"
+                type="application/x-mpegURL">
+    </video>
+    <script>
+        
+    </script>
+</body>
+</html>

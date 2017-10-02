@@ -1,0 +1,37 @@
+﻿@using Kendo.Mvc.UI
+@using VideoManagement.Models
+@section Styles
+{
+    <link href="~/lib/kendo/kendo.common.min.css" rel="stylesheet" />
+    <link href="~/lib/kendo/kendo.default.min.css" rel="stylesheet" />
+}
+<div class="mb-1">
+    <a href="@Url.Action("Create")" class="btn btn-primary">New</a>
+</div>
+@(Html.Kendo().Grid<VideoAdVm>()
+    .Name("VideoAdVm")
+    .Columns(columns =>
+    {
+        columns.Bound(p => p.Id);
+        columns.Bound(p => p.Title);
+    })
+    .Pageable()
+    .Sortable()
+    .Scrollable()
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(20)
+        .Model(model =>
+        {
+            model.Id(p => p.Id);
+            model.Field(a => a.Id).Editable(false);
+        })
+        .Read(read => read.Action("Get", "VideoAd"))
+        .Destroy(update => update.Action("Remove", "VideoAd"))
+    )
+)
+@section Scripts
+{
+    <script src="~/lib/kendo/kendo.web.min.js"></script>
+    <script src="~/lib/kendo/kendo.aspnetmvc.min.js"></script>
+}

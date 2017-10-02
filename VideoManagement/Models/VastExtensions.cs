@@ -1,28 +1,39 @@
-﻿using System.Web;
-using System.Web.Mvc;
-using System.Xml;
-using VideoManagement.Models;
+﻿using System.Xml;
 
-namespace VideoManagement.Controllers
+namespace VideoManagement.Models
 {
-    public class HomeController : Controller
+    public static class VastExtensions
     {
-        public ActionResult Index()
+        public static VastCreationResult CreateVast(this CreateVideoAdVm vm, string filePath)
         {
-            ViewBag.Title = "Dashboard";
-            return View();
+            switch (vm.VastVersion)
+            {
+                case VastVersion.Version2:
+                    return CreateVastVersion2(vm, filePath);
+                case VastVersion.Version3:
+                    return new VastCreationResult()
+                    {
+                        VastCreationResultType = VastCreationResultType.Failure,
+                        Message = "Vast Version 3 is not supported yet."
+                    };
+                case VastVersion.Version4:
+                    return new VastCreationResult()
+                    {
+                        VastCreationResultType = VastCreationResultType.Failure,
+                        Message = "Vast Version 4 is not supported yet."
+                    };
+                default:
+                    return new VastCreationResult()
+                    {
+                        VastCreationResultType = VastCreationResultType.Failure,
+                        Message = "Unhandled situation"
+                    };
+            }
         }
 
-        public ActionResult Create1()
+        public static VastCreationResult CreateVastVersion2(CreateVideoAdVm vm, string filePath)
         {
-            var serverPath = Server.MapPath("~/adssample");
-
-            var filePath = string.Format("{0}\\{1}", serverPath, "ads2.xml");
-
-            if (System.IO.File.Exists(filePath))
-            {
-                System.IO.File.Delete(filePath);
-            }
+            var version = "2.0";
 
             XmlDocument doc = new XmlDocument();
 
@@ -31,7 +42,7 @@ namespace VideoManagement.Controllers
             doc.InsertBefore(xmlDeclaration, root);
 
             XmlElement vastElement = doc.CreateElement(string.Empty, "vast", string.Empty);
-            vastElement.SetAttribute("version", "2.0");
+            vastElement.SetAttribute("version", version);
             vastElement.SetAttribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
             vastElement.SetAttribute("xsi:noNamespaceSchemaLocation", "vast.xsd");
             doc.AppendChild(vastElement);
@@ -49,12 +60,12 @@ namespace VideoManagement.Controllers
             inLineElement.AppendChild(adSystemElement);
 
             XmlElement adTitleElement = doc.CreateElement(string.Empty, "AdTitle", string.Empty);
-            XmlText text2 = doc.CreateTextNode("Ninisite video ad");
+            XmlText text2 = doc.CreateTextNode(vm.Title);
             adTitleElement.AppendChild(text2);
             inLineElement.AppendChild(adTitleElement);
 
             XmlElement descriptionElement = doc.CreateElement(string.Empty, "Description", string.Empty);
-            XmlText text3 = doc.CreateTextNode("Ninisite video ad Description");
+            XmlText text3 = doc.CreateTextNode(vm.Description);
             descriptionElement.AppendChild(text3);
             inLineElement.AppendChild(descriptionElement);
 
@@ -124,7 +135,7 @@ namespace VideoManagement.Controllers
 
             string html = System.IO.File.ReadAllText(filePath);
 
-            return Content(html, "text/xml");
+            return new VastCreationResult();
         }
     }
 }

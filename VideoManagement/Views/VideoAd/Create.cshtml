@@ -1,0 +1,54 @@
+﻿@using VideoManagement.Models
+@model CreateVideoAdVm
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                @Html.LabelFor(a => a.VastVersion)
+                @Html.EnumDropDownListFor(a => a.VastVersion, "Select ... ", new { @class = "form-control" })
+                @Html.ValidationMessageFor(a => a.VastVersion)
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                @Html.LabelFor(a => a.Title)
+                @Html.TextBoxFor(a => a.Title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(a => a.Title)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                @Html.LabelFor(a => a.File)
+                @Html.TextBoxFor(a => a.File, new { type = "file", @class = "form-control" })
+                @Html.ValidationMessageFor(a => a.File)
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                @Html.LabelFor(a => a.DurationInSeconds)
+                @Html.TextBoxFor(a => a.DurationInSeconds, new { @class = "form-control" })
+                @Html.ValidationMessageFor(a => a.DurationInSeconds)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                @Html.LabelFor(a => a.Description)
+                @Html.TextBoxFor(a => a.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(a => a.Description)
+            </div>
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="@Url.Action("VideoAds")" class="btn btn-danger">Cancel</a>
+}
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.6/jquery.validate.unobtrusive.js"></script>
+}
