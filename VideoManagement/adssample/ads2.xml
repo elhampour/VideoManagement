@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<vast version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" noNamespaceSchemaLocation="vast.xsd">
+  <Ad id="1">
+    <InLine>
+      <AdSystem>Ninisite</AdSystem>
+      <AdTitle>Ninisite video ad</AdTitle>
+      <Description>Ninisite video ad Description</Description>
+      <Impression id="impression1"><![CDATA[http://servedby.flashtalking.com/imp/1/31714;812030;201;gif;DailyMail;640x360VASTHTML5/?ft_creative=377314&ft_configuration=0&cachebuster=1871565385]]></Impression>
+      <Creatives>
+        <Creative sequence="1">
+          <Linear>
+            <Duration>00:00:15</Duration>
+            <TrackingEvents>
+              <Tracking event="creativeview"><![CDATA[http://localhost:62046/stat/0]]></Tracking>
+              <Tracking event="start"><![CDATA[http://localhost:62046/stat/1]]></Tracking>
+              <Tracking event="midpoint"><![CDATA[http://localhost:62046/stat/2]]></Tracking>
+              <Tracking event="firstquartile"><![CDATA[http://localhost:62046/stat/3]]></Tracking>
+              <Tracking event="thirdquartile"><![CDATA[http://localhost:62046/stat/4]]></Tracking>
+              <Tracking event="complete"><![CDATA[http://localhost:62046/stat/5]]></Tracking>
+              <Tracking event="mute"><![CDATA[http://localhost:62046/stat/6]]></Tracking>
+              <Tracking event="unmute"><![CDATA[http://localhost:62046/stat/7]]></Tracking>
+              <Tracking event="pause"><![CDATA[http://localhost:62046/stat/8]]></Tracking>
+              <Tracking event="rewind"><![CDATA[http://localhost:62046/stat/9]]></Tracking>
+              <Tracking event="resume"><![CDATA[http://localhost:62046/stat/10]]></Tracking>
+              <Tracking event="fullscreen"><![CDATA[http://localhost:62046/stat/11]]></Tracking>
+              <Tracking event="expand"><![CDATA[http://localhost:62046/stat/12]]></Tracking>
+              <Tracking event="collapse"><![CDATA[http://localhost:62046/stat/13]]></Tracking>
+              <Tracking event="acceptinvitation"><![CDATA[http://localhost:62046/stat/14]]></Tracking>
+              <Tracking event="close"><![CDATA[http://localhost:62046/stat/15]]></Tracking>
+            </TrackingEvents>
+            <VideoClicks>
+              <ClickThrough><![CDATA[http://servedby.flashtalking.com/click/1/31714;812030;377314;211;0/?random=1871565385&ft_width=640&ft_height=360&url=http://www.google.co.uk]]></ClickThrough>
+            </VideoClicks>
+            <MediaFiles>
+              <MediaFile id="1" delivery="progressive" type="video/mp4" bitrate="524" width="640" height="360">
+                <![CDATA[http://cdn.flashtalking.com/17601/30988_26752_WacoClub_640x360_384kbps.mp4]]>
+              </MediaFile>
+            </MediaFiles>
+          </Linear>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+</vast>
